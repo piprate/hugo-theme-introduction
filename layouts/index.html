@@ -27,11 +27,17 @@
                         {{ .Content }}
                     </div>
                     <!-- End title and tagline -->
+                    {{ if .Site.Params.home.cta }}
+                    <div class="{{ if or (.Site.Params.fadeIn | default true) .Site.Params.fadeInIndex }}fade-in three{{ end }}">
+                        {{ partial "home/cta-button.html" . }}
+                    </div>
+                    {{ else }}
                     <!-- Some social icons -->
                     <div class="{{ if or (.Site.Params.fadeIn | default true) .Site.Params.fadeInIndex }}fade-in three{{ end }}">
                         {{ partial "home/social.html" . }}
                     </div>
                     <!-- End top social icons -->
+                    {{ end }}
                 </div>
             </div> <!-- End of Hero body -->
             {{ end }}
